@@ -1,0 +1,703 @@
+% "%" is used for commenting
+%  Latex report preparation template.
+% Syntax is explained through out the document.
+% Enjoy the world of LaTex!!!!!!!
+
+
+
+
+% To Specify the document is a report, font size 12pt & a4 page format
+\documentclass[12pt,a4paper,titlepage]{report}
+
+% Include packages needed for pictures, fonts, maths etc.....
+\usepackage[titletoc]{appendix} % to include appendix in table of contents
+\usepackage[nottoc]{tocbibind}  % to include bibliography in table of contents  
+\usepackage{fancyhdr} % to include header & footer
+\usepackage{graphicx}
+\usepackage[left=3.5cm, right=2.5cm, top=3.0cm, bottom=2.5cm]{geometry}
+\usepackage{latexsym}		% to get LASY symbols
+\usepackage{epsfig}		% to insert PostScript figures
+\usepackage{rotating}		% for sideways tables/figures
+\usepackage{eufrak}
+\usepackage{type1cm}
+\usepackage{newsec}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{listings} % Required for insertion of code
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{courier} % Required for the courier font
+\usepackage{dashrule}
+\usepackage[none]{hyphenat}
+
+% To Specify the characteristics of chapter heading.
+\titleformat{\chapter}[display]
+{\normalfont\Large\bfseries\centering}{\chaptertitlename\
+\thechapter}{25pt}{\Large}
+
+
+% Here we begin the report after the specifications............
+\begin{document}
+
+
+% --------------Title Page---------------------------%
+\titlepage
+\thispagestyle{empty}
+\begin{center}
+\Large \textbf{POSTURE-BASED DETECTION AND FEEDBACK SYSTEM for CRICKET}\\[2cm]
+\large \textit{The Mini Project report submitted in partial fulfillment of the
+requirements for the award of the degree of}\\[1cm]
+{\huge {$\mathfrak {Bachelor\; of\; Technology}$}}\\[.5cm]
+\textit{in}\\[.5cm]
+{\Large \bf \itshape{{Artificial Intelligence \& Machine Learning}}}\\[1cm]
+\large \textit{by}
+\vskip1.0cm
+\large \textbf{SAI VISHNU M S} (\small \textbf{Reg. No. MCE23AIM053})\\ % Highlight self name only in the individual copy.
+\large{JINIL EUGINE} (\small{Reg. No. MCE23AIM035})\\
+\large {NABUHAN J S} (\small {Reg. No.MCE23AIM041})\\    
+\large{Mohammed Bilal S} (\small{Reg. No. MCE23AIM038})\\
+\vskip1.0cm
+\includegraphics[height=5cm]{college_logo-removebg.png}\\
+\vspace{1cm}
+\large \bfseries{Marian Engineering College}\\
+\large \bfseries{Trivandrum,Kerala- 695582}\\
+\large \bfseries{Kerala}\\
+\large \bfseries{April 2026}
+\vspace{2cm}
+\end{center}
+% --------------Title Page---------------------------%
+
+
+% --------------Certificate page----------------------%
+\clearpage
+\newlength{\toptafiddle} 
+\newlength{\bottafiddle}
+\setlength{\toptafiddle}{1in}
+\setlength{\bottafiddle}{1in}
+\vspace*{-0.5in}
+\enlargethispage{\bottafiddle}
+\thispagestyle{empty}
+
+\begin{center} \Large \bfseries{DEPARTMENT OF ARTIFICIAL INTELLIGENCE \& MACHINE LEARNING}\\
+\large\bfseries{Marian Engineering College}\\
+\large \bfseries{Kazhakuttom, Trivandrum - 695582}\\
+\vspace{1.0cm}
+\includegraphics[height=6.0cm]{college_logo-removebg.png}\\
+\vspace{1.5cm}
+\textbf{CERTIFICATE}\end{center}
+\vspace{1.5cm}
+\begin{sloppypar}
+\noindent
+This is to certify that the report entitled \textbf{''POSTURE-BASED DETECTION \& FEEDBACK SYSTEM for CRICKET''} is a bonafide record of the Mini Project presented by \textbf{SAI VISHNU M.S. (Reg. No. MCE23AIM053)}, JINIL EUGIN (Reg. No. MCE23AIM035), MOHAMED BILAL S (Reg. No. MCE23AIM038), and NABUHAN J.S. (Reg. No. MCE23AIM041) under our supervision and guidance. The report has been submitted to the \textbf{Department of Artificial Intelligence \& Machine Learning} of \textbf{Marian Engineering College, Kazhakuttom, Trivandrum} in partial fulfillment of the award of the Degree of Bachelor of Technology in Artificial Intelligence \& Machine Learning, during the year 2025-2026.
+\end{sloppypar}
+
+\begin{center}
+    % Place signature lines here
+\end{center}
+\begin{center}
+\end{center}
+\vspace{1cm}
+\begin{minipage}{.7\textwidth}
+\begin{flushleft} 
+\textbf{Ms. JYOTSNA A.}\\
+\itshape{Project Guide}\\
+\itshape{Assistant Professor}\\
+\itshape{Artificial Intelligence \& \\ Machine Learning}\\
+\itshape{Marian Engineering College \\ Trivandrum}\\
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{1\textwidth}
+\begin{flushright} 
+\vfill
+\begin{flushleft}
+\textbf{Prof. Balu John}\\
+\itshape{ Head of the Department}\\
+\itshape{Artificial Intelligence \& \\ Machine Learning}\\
+\itshape{Marian Engineering College \\ Trivandrum}\\
+\end{flushleft}
+\end{flushright}
+\end{minipage}
+
+
+
+% --------------Certificate page----------------------%
+
+
+
+%------------------Ack page ---------------------------%
+\clearpage
+\normalsize{}
+\thispagestyle{empty}
+\renewcommand\abstractname{ACKNOWLEDGEMENT}
+\begin{abstract}
+\vspace{1.5cm}
+We are extremely thankful to our Principal \textbf{Dr.Abdul Nizar M. } 
+for giving us his consent for this project. We are thankful to 
+\textbf{Prof. Balu John}, Head of the Department, Artificial Intelligence \& Machine Learning, for his valuable suggestions and
+support. We are indebted to our project Coordinators \textbf{Dr. Aswathy S. U}, \textbf{Ms. Aswathy T .K.}, \textbf{Ms. Jyotsna A} and our guide \textbf{Ms. Jyotsna A},
+Asst. Professor, Dept. of Artificial Intelligence \& Machine Learning  for their constant help and support throughout the presentation of the project by providing timely advices and guidance. We thank God almighty for all
+the blessing received during this endeavor. Last, but not least we thank all our
+friends for the support and encouragement they have given us during the course of our work.
+\end{abstract}
+\newpage
+\renewcommand\abstractname {ABSTRACT}
+\begin{abstract}
+\vspace{1.5cm}
+
+Precise biomechanical evaluation in cricket is traditionally restricted to expensive motion-capture environments, leaving amateurs reliant on subjective observation. This project presents a {Posture-Based Detection and Feedback System for Cricket} to democratize elite-level motion analysis using standard 2D video. The system employs a unique Triple-Model AI "Sense-Verify-Advise" architecture to transform raw video into actionable coaching intelligence.
+
+The Perception Layer utilizes Google MediaPipe to extract 33 distinct 3D skeletal landmarks(99 distinct points all together from x,y and z axis) , enabling digital spatial topological mapping and the calculation of kinematic metrics, such as elbow extension, via the Law of Cosines. The Validation Layer utilizes a Random Forest classifier trained on the UCF101 dataset to benchmark amateur kinematics against professional signatures and identify technical deviations like head-dropping or lead-knee collapse. Finally, the Cognitive Layer integrates the OpenAI GPT-4o API to translate biomechanical scalars into human-centric generative coaching heuristics.
+
+Delivered through an asynchronous FastAPI backend with automated PDF auditing via ReportLab, the system eliminates human observation bias and provides accessible, algorithmic technique correction without the need for cost-prohibitive sensor hardware. Cumulative analysis across multiple test cases demonstrates high consistency in detecting biomechanical metrics and successfully identifying diverse stroke categories.
+\end{abstract}
+% ----------------Abstrat page-----------------------%
+
+
+%------------------Ack page ---------------------------%
+
+% Table of contents page.... Automatically generated.............
+\newpage
+\pagenumbering{roman}
+\normalsize \tableofcontents
+
+% List of figures page.............. Automatically generated...................
+\newpage
+\normalsize \listoffigures
+% List of tables page.............. Automatically generated...................
+\newpage
+\normalsize \listoftables
+% ------------------Chapters -----------------------------%
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% ------------- Defining header & footer section ------------%
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[R]{\textit{POSTURE-BASED DETECTION \& FEEDBACK SYSTEM FOR CRICKET}}
+\fancyfoot[L]{\textit{Dept. of AI \& ML}}
+\fancyfoot[R] {\textit{Marian Engineering College}}
+\fancyfoot[C] {\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+% ------------- Defining header & footer section ------------%
+\chapter{Introduction}
+Our project is an AI-driven biomechanical analysis tool that uses Human Pose Estimation and machine learning to autonomously evaluate and correct cricket batting techniques using standard 2D video. By benchmarking a player's spatial kinematics against professional datasets and utilizing Generative AI for real-time feedback, the system democratizes elite-level sports analytics for amateur players without the need for expensive motion-capture labs.
+
+\section{Introduction}
+In the field of modern sports analytics, the precise analysis of the biomechanics of an individual is of utmost importance in the development of the sportsperson as well as the improvement of their techniques. In the actual environment, amateur sportspeople often tend to develop technical flaws in their game, as they are not provided with instant, precise, and objective feedback. In the case of professional cricket organizations, the most advanced motion analysis labs with the ability to mathematically analyze the biomechanics of the player are used. These traditional methods of analyzing the biomechanics of the player are highly expensive, invasive, and completely beyond the reach of schools in the local area.
+In order to bridge this technological as well as economic gap, this project aims at developing a novel AI-based "Posture-Based Technique Feedback System for Cricket Batting." Using the highly efficient "Triple Model Artificial Intelligence" framework, the system is able to provide the benefits of the most advanced motion analysis labs to the amateur sportspeople of the local area by extracting the spatial kinematics of the player directly from the 2D video input, utilizing the highly efficient computer vision algorithms of Google MediaPipe, the supervised machine learning algorithm of Random Forest with the UCF101 dataset, as well as the cognitive reasoning of the highly efficient OpenAI GPT-4o algorithm, creating an efficient "Sense-Verify-Advise" framework that is highly efficient in eliminating the observation bias of the individual, allowing the system to automatically classify the complex batting techniques of the player.
+
+\section{Motivation}
+The underlying motivation for choosing this particular theme was rooted in the technological and financial disparity that exists in sports technology in the modern world. At the highest echelon, cricket boards around the world have invested in state-of-the-art, multi-million-dollar motion capture facilities that incorporate physical sensors (Vicon) for the mathematical analysis of the player's biomechanics. However, at the grassroots level, local academies, schools, and amateur players are completely omitted from this data-driven world due to the underlying financial constraints. This has caused amateur players to develop poor technical skills, as they are forced to solely depend on human observation without any objective feedback mechanism in their training sessions. This project was chosen with the underlying objective of bridging this technological gap. The underlying motivation for choosing this project was rooted in the desire to create a low-cost software-only artificial intelligence system that could bridge the technological gap in sports technology, enabling local players and coaches to access precise, reproducible, and automated biomechanical feedback, which was previously only accessible to international sports professionals.The primary catalyst for this project was observing the severe limitations of traditional hardware-based motion capture. Currently, elite analysis requires players to wear physical, invasive sensors (such as IMU suits) in multi-million-dollar laboratories. We were deeply motivated to break down this financial and logistical paywall by engineering a completely markerless, software-driven alternative that empowers grassroots players with the same level of analytical precision.
+
+\section{Problem Definition}
+In amateur cricket, the dominant trend of repeating technical kinematic errors due to the absence of objective data-driven feedback mechanisms has been noted. The underlying concern here is the absence of a low-cost, automated system with the ability to process high-speed athletic movements captured by conventional 2D video technology. The currently available biomechanical feedback tools offer a binary constraint, either being basic video recording tools with no computational correction capabilities or being hardware-dependent tools with the need to purchase expensive hardware sensors and complex infrared camera systems.
+This emphasis on hardware tools poses a massive logistical challenge. The hardware tools used to record motion are prohibitively expensive for amateur cricket academies, and the need to physically attach hardware tools such as IMUs to the batsman during live net practice fundamentally inhibits the natural movement of the batsman. Therefore, a pressing need exists for a passive solution with the ability to autonomously recognize spatial kinematics and structural technique with consumer-grade cameras.
+
+\section{Objectives}
+The main objective of conducting this project is to develop an artificial intelligence-based real-time posture analysis tool that provides the user with feedback regarding the techniques they are using while playing various sports like cricket and football by applying the concept of computer vision-based pose estimation models. The main objective of developing this tool is to enable the user to enhance their performance while playing sports by accurately identifying the key points of the user and the key points of the professional players, thereby enabling the user to correct their techniques while playing various sports without the fear of getting injured by applying the concept of Python-based frameworks like Streamlit and Flask.
+
+\section{Scope of the project}
+The scope of this project centers on the development of a specialized computer vision application designed to analyze and enhance cricket batting techniques through automated posture feedback. Leveraging the MediaPipe pose estimation framework and Python-based libraries like OpenCV, the system identifies thirty-three distinct skeletal landmarks to evaluate critical body alignments, such as head position, elbow elevation, and knee flexion during specific shots like the forward defense. The functional boundary of the project is strictly defined by human kinetic analysis, providing real-time visual overlays that indicate corrective measures for the batsman. While the system excels at detecting postural deviations in batting, it deliberately excludes the tracking of ball trajectories, bowling actions, or complex fielding maneuvers. Designed as a lightweight tool for student-athletes and coaches, the project aims to provide a high-precision, cost-effective alternative to expensive wearable sensors, making professional-grade technical analysis accessible through a standard camera interface.
+
+\section{Chapter Details}
+The chapter details are presented in a technical hierarchy. It begins with an Introduction section where the objective of using computer vision in cricket bat usage is defined and scope is provided to the project. The next section is Literature Survey, which discusses existing pose estimation technologies like MediaPipe. Then comes the System Analysis chapter where hardware and software needs are discussed, i.e., Python, OpenCV, Streamlit, etc. The most important part of any project report is the Methodology and Design sections where system architecture is discussed along with trigonometry and logic for providing feedback in real-time. Finally, in the last section, Implementation and Testing are discussed along with a Summary and Future Scope where possibilities are discussed to extend this project to bowling as well.
+%%%% New Chapter........................
+\chapter{Literature Survey}
+In this chapter, a detailed literature survey of the existing research done in the particular domain of sports analytics, focusing on cricket posture analysis as well as stroke classification, will be presented. This will provide us with an idea of the different methodologies that have been employed, ranging from traditional feature-based detection approaches to more sophisticated deep learning approaches. This will provide us with an insight into the existing gaps of real-time feedback systems, which will, in turn, help us understand the need for our proposed system of posture-based detection.
+\section{Paper [1] : Pose‑Based Stroke Classification}
+Siddiqui et al. (2023) investigated the automated identification of cricket strokes by analyzing human pose landmarks. Their methodology employed the MediaPipe framework for precise, real-time joint detection, seamlessly extracting spatial coordinates. These biomechanical features were then processed through machine learning classifiers to successfully categorize various batting strokes. While this model demonstrated commendable classification accuracy and was validated against a highly detailed, well-prepared dataset, its overall utility remains fundamentally constrained. The system’s scope is limited strictly to stroke identification. Consequently, it lacks the critical analytical depth required to evaluate technical flaws or provide actionable posture correction feedback to athletes aiming to improve.
+\section{Paper [2] : Feature‑Based Shot Detection}
+Moodley and van der Haar (2019) have provided a system that recognizes cricket strokes by extracting basic visual features of the human body instead of relying on intricate mapping of the human skeleton. The basic methodology of this system involves extracting specific geometric features from the player’s bat and torso, which are then passed to a machine learning classifier to determine the type of shot that has been executed. This basic methodology, while highly efficient and responsive, possessed one of the biggest analytical drawbacks. The complete absence of joint tracking meant that the player’s basic biomechanical posture could not be analyzed. Therefore, while this system could be highly effective in terms of basic shot recognition, it could never be used to provide the kind of technical feedback that could be used to correct posture.
+\section{Paper [3] : ML‑Based Stroke Recognition}
+Devanandan et al. (2021) explored the application of classical machine learning techniques to address the challenge of automated cricket stroke recognition. Their proposed approach utilized a Random Forest classification algorithm trained extensively on visually engineered features extracted entirely from static images. This specific methodology proved highly advantageous for researchers working with smaller datasets, as it significantly reduced training times and maintained lower overall computational costs compared to deep learning alternatives. However, the reliance on static, two-dimensional images introduced a critical limitation. By evaluating shots as isolated frames, the system completely ignored crucial motion timing, weight distribution shifts, and sequential movement information. Because executing a proper cricket stroke is inherently dynamic, relying solely on static spatial analysis prevents the model from capturing the fluid mechanics of the swing, limiting its potential as a comprehensive coaching or technique refinement tool.
+\section{Paper [4] : Deep Learning for Motion Sequences}
+The study done by Bandara and Bačić in the year 2020 was a major leap forward for sports analytics, as the authors employed deep learning techniques for analyzing sequences of continuous movement of the ball during a cricket stroke. The collective method, as employed in this study, was able to process video sequences for training an LSTM network, as opposed to relying on individual frames of the video, which might not have captured the transitions of movement of the ball with sufficient accuracy. Thus, with the increased power of sports analytics came a number of challenges as well. The first challenge was that the LSTM network required a large video dataset for training the network. In addition to this, though the network was able to attain high accuracy levels for the identification of different strokes, it was not able to provide any feedback to the athlete.
+
+\section{Paper [5] : Early Automated Shot Detection}
+Representing one of the earliest foundational attempts at automated sports analysis, Lazarescu et al. (1999) explored the automatic detection and classification of cricket shots using early computer vision techniques. Their pioneering methodology relied primarily on analyzing global camera motion parameters and extracting basic visual cues from broadcast footage, rather than focusing directly on player biomechanics. While this early work was highly innovative and successfully introduced several core conceptual frameworks for automated cricket analysis, practical implementation revealed severe limitations. The system suffered from notably low overall classification accuracy when tested on diverse footage. Additionally, the pipeline required significant manual intervention and pre-processing steps to function correctly. Because of these heavy computational burdens and the lack of automated tracking, the methodology was ultimately deemed entirely unsuitable for modern, real-time application or in-game player analysis.
+%%%% New Chapter........................
+\chapter{Proposed System}
+The Proposed System utilizes a "Triple-Model" AI architecture titled "Sense-Verify-Advise" to democratize elite-level cricket coaching through accessible computer vision. This tiered structure begins with a Perception Layer where Google MediaPipe extracts 33 distinct 3D skeletal landmarks(99 points) from raw 2D video frames to perform high-frequency kinematic mapping. These spatial coordinates are then passed to a Validation Layer, which utilizes a Random Forest classifier trained on the UCF101 dataset to benchmark amateur form against professional signatures and identify technical deviations such as head-dropping or lead-knee collapse. Finally, the Cognitive Layer integrates the OpenAI GPT-4o API to translate complex biometric scalars into concise, human-centric coaching heuristics, which are delivered via a FastAPI backend and displayed on a modern "Glassmorphism" styled dashboard.
+\\
+It is designed as an intelligent cricket posture detection and analysis platform that leverages advancements in computer vision and machine learning to evaluate batting techniques from video input. Unlike traditional coaching methods that rely heavily on manual observation and subjective judgment, this system introduces an automated, data-driven approach to analyzing player performance. By integrating a web-based interface with a robust backend and a trained machine learning model, the system provides a seamless environment where users can upload videos of cricket shots and receive detailed biomechanical feedback.
+\\
+At its core, the system focuses on understanding human body movement through pose estimation techniques. It identifies key skeletal landmarks from video frames and uses these landmarks to compute critical joint angles, particularly the elbow angle, which plays a significant role in determining the type and quality of a cricket shot. The system not only classifies the shot but also evaluates posture correctness and provides actionable feedback. Additionally, it generates a structured PDF report, making the analysis portable and useful for training purposes.
+
+\section{Methodology}
+The Methodology of the system follows a structured "Detection-Analysis-Feedback" computational pipeline designed to transform raw video data into actionable biomechanical insights. The process initiates at the Perception Layer, where Google MediaPipe extracts 33 distinct 3D skeletal landmarks from 2D video frames to perform high-frequency kinematic mapping. These spatial coordinates are then ingested by the Validation Layer, which utilizes the Law of Cosines to calculate precise joint angles while a Random Forest classifier, trained on the UCF101 dataset, benchmarks the user's form against professional athletic signatures to identify technical deviations like head-dropping or lead-knee collapse. Finally, the Cognitive Layer leverages the OpenAI GPT-4o API to perform zero-shot inference, translating complex biometric scalars into human-centric coaching heuristics that are delivered via a FastAPI backend and displayed on a "Glassmorphism" styled dashboard.
+\\
+The methodology adopted in this system follows a structured pipeline that transforms raw video input into meaningful analytical insights. It combines techniques from computer vision, machine learning, and biomechanical analysis to evaluate cricket shots. Each stage of the methodology is carefully designed to ensure accurate detection, efficient processing, and meaningful output generation.
+
+\subsection{System Architecture Diagram and description }
+The System Architecture of the Posture-Based Detection and Feedback System is built upon a Triple-Model AI "Sense-Verify-Advise" framework designed to democratize elite-level motion analysis. This tiered structure begins with a Perception Layer where Google MediaPipe extracts 33 distinct 3D skeletal landmarks from raw 2D video frames to perform high-frequency kinematic mapping. These spatial coordinates are then passed to a Validation Layer, which utilizes a Random Forest classifier trained on the UCF101 dataset to benchmark amateur form against professional signatures and identify technical deviations such as head-dropping or lead-knee collapse. Finally, the Cognitive Layer integrates the OpenAI GPT-4o API to translate complex biometric scalars into concise, human-centric coaching heuristics, which are delivered via a FastAPI backend and displayed on a modern "Glassmorphism" styled dashboard.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Pictures/SystemArc.jpeg}
+    \caption{System Architecture Diagram}
+    \label{fig:system_architecture}
+\end{figure}
+
+The system architecture of the Cricket Posture Detection System follows a layered and modular design, where each component performs a specific role in transforming raw video input into meaningful analytical output. The architecture is divided into four primary layers: the user layer, the presentation layer, the application layer, and the data processing layer. These layers interact seamlessly to ensure smooth data flow and efficient processing.
+At the highest level, the user interacts with the system through a web interface, which communicates with the backend server. The backend orchestrates the entire workflow by invoking different processing modules such as video analysis, pose detection, and machine learning classification. The results are then stored and presented back to the user in a structured format.
+The user layer represents the external entity interacting with the system. Users access the system through a web-based interface built using HTML, Tailwind CSS, and JavaScript. This frontend layer is responsible for capturing user inputs such as login credentials and video uploads. It also displays outputs including processed videos, feedback, and downloadable reports.
+The frontend communicates with the backend using HTTP requests, specifically through RESTful APIs. It ensures that user interactions are intuitive and responsive, hiding the complexity of backend processing while providing a smooth experience.
+The backend layer is implemented using FastAPI and acts as the central controller of the system. It receives requests from the frontend, validates user authentication, and manages session handling using cookies. Once a video is uploaded, the backend stores it temporarily and triggers the analysis pipeline.
+
+This layer is responsible for coordinating different modules, including video processing, pose detection, machine learning inference, and report generation. It also formats the final response, which includes the processed video URL, feedback data, and report link, and sends it back to the frontend.
+
+
+
+\section{Module Description}
+The system utilizes cricket shot videos sourced from datasets such as UCF101, which contain various sports-related video clips. These videos serve as the foundation for training the machine learning model. During preprocessing, videos are read frame by frame using OpenCV, and each frame is converted into RGB format to ensure compatibility with the MediaPipe pose detection model.
+Noise reduction and normalization techniques are implicitly handled through the pose detection framework, ensuring that only relevant skeletal information is extracted. This step is crucial in preparing the data for feature extraction and subsequent analysis.
+The Cricket Posture Detection System is designed using a modular architecture in which each component is responsible for a specific functionality within the overall workflow. This modular approach not only simplifies system design and implementation but also enhances scalability and maintainability. Each module operates independently while contributing to the complete pipeline of video analysis, posture detection, and feedback generation. The following sections describe each module in detail.
+\subsection{Pose Detection and Feature Extraction}
+Pose detection is carried out using the MediaPipe library, which identifies 33 key landmarks on the human body. These landmarks include joints such as the shoulders, elbows, wrists, hips, knees, and ankles. Each landmark is represented by three coordinates: x, y, and z, indicating its position in three-dimensional space.
+The extracted landmarks are then converted into numerical feature vectors by flattening the coordinate values into a single array. This transformation enables the data to be used as input for machine learning models. The consistency and accuracy of these features play a critical role in determining the effectiveness of the system.
+\subsection{Angle Calculation and Biomechanical Analysis}
+A key aspect of the methodology is the calculation of joint angles, particularly the elbow angle, which is computed using trigonometric functions. By considering three points corresponding to the shoulder, elbow, and wrist, the system calculates the angle formed at the elbow joint. This angle is computed for multiple frames and averaged to obtain a stable and reliable measurement.
+
+The calculated angle is then used as a primary metric for shot classification. In addition to angle calculation, the system performs biomechanical analysis by examining posture-related parameters such as head alignment and knee balance. These parameters help identify deviations from ideal posture and contribute to generating corrective feedback.
+\subsection{Model Training and Classification}
+The machine learning component of the system is implemented using a Random Forest classifier. During training, the model is provided with feature vectors extracted from professional cricket shots, labeled as correct techniques. The model learns patterns associated with proper posture and shot execution.
+
+During inference, the system uses both the trained model and rule-based logic to classify the shot. The rule-based approach relies on predefined angle thresholds to categorize shots, while the machine learning model enhances the system’s ability to generalize and recognize patterns. This hybrid approach ensures both accuracy and interpretability.
+\subsection{Feedback Generation and Report Creation}
+Once the shot is classified, the system generates feedback based on posture analysis. It identifies issues such as improper head positioning or imbalance in body weight and provides corrective suggestions. If no issues are detected, the system acknowledges the stability of the technique.
+
+The final step involves generating a PDF report using the ReportLab library. This report includes details such as the type of shot, average elbow angle, number of frames analyzed, and feedback messages. The report serves as a valuable resource for players and coaches to review performance and track improvements over time.
+
+\subsection{User Interface Module}
+The user interface module serves as the primary point of interaction between the user and the system. It is developed using HTML, Tailwind CSS, and JavaScript, providing a clean, responsive, and visually engaging environment. This module allows users to register, log in, upload cricket shot videos, and view analysis results.
+
+The interface is designed to guide the user through a structured workflow, beginning with authentication and progressing to video upload and analysis. Once the processing is complete, the interface dynamically updates to display the processed video, feedback messages, and a link to download the generated report. The use of asynchronous JavaScript ensures that the user experience remains smooth and responsive without requiring page reloads. Overall, this module plays a crucial role in ensuring usability and accessibility of the system.
+\subsection{Authentication Module}
+The authentication module is responsible for managing user access and ensuring secure interaction with the system. It handles user registration and login processes using credentials such as username, email, and password. The backend verifies these credentials against the database and establishes a session using cookies.
+
+Once authenticated, the user is granted access to the dashboard and analysis features. The system maintains session persistence through HTTP cookies, allowing users to navigate the application without repeated logins. This module ensures that user-specific data, such as uploaded videos and analysis reports, are securely associated with the correct user account. By implementing basic authentication mechanisms, the system provides a foundation for secure and personalized user experiences.
+\subsection{API and Backend Module (FastAPI)}
+The backend module, implemented using FastAPI, acts as the central controller of the entire system. It is responsible for handling incoming requests from the frontend, processing data, and coordinating various internal modules. This module defines multiple API endpoints for functionalities such as user registration, login, video upload, and result retrieval.
+
+When a user uploads a video, the backend receives the file, assigns it a unique identifier, and stores it in a designated directory. It then invokes the video processing and analysis pipeline. After processing, the backend constructs a response containing the processed video path, feedback data, and report link, which is sent back to the frontend. The backend also integrates with the OpenAI API to generate additional technical feedback, enhancing the quality of analysis. This module serves as the backbone of the system, ensuring smooth communication and execution of tasks.
+\subsection{Video Processing Module}
+The video processing module is responsible for handling raw video input and preparing it for analysis. It uses the OpenCV library to read the uploaded video frame by frame. Each frame is processed individually, allowing the system to analyze motion and posture across the entire duration of the video.
+During processing, frames are converted into RGB format to make them compatible with the pose detection model. The module also writes the processed frames into a new output video file, which includes visual overlays of detected skeletal landmarks. Additionally, the module uses FFmpeg to encode the final video into a standardized format for smooth playback. This module forms the foundation of the analysis pipeline by transforming raw video data into a structured format suitable for further processing.
+\subsection{Pose Detection Module}
+The pose detection module utilizes the MediaPipe framework to identify and track human body landmarks in each frame of the video. MediaPipe provides a robust and efficient solution for real-time pose estimation, detecting 33 key points that represent various joints and body parts.
+
+These landmarks include critical joints such as the shoulders, elbows, wrists, hips, and knees, which are essential for analyzing cricket batting posture. The detected landmarks are drawn onto the video frames, providing a visual representation of the player's posture. The accuracy and reliability of this module are crucial, as the extracted landmarks serve as the primary input for feature extraction and biomechanical analysis.
+\subsection{Feature Extraction Module}
+The feature extraction module converts the detected pose landmarks into a numerical format suitable for analysis and machine learning. Each landmark is represented by its x, y, and z coordinates, and these values are combined to form a feature vector.
+The module flattens the coordinates of all landmarks into a single array, creating a structured dataset that can be used for training and inference. This transformation is essential for enabling the machine learning model to process the data effectively. The quality of the extracted features directly influences the accuracy of shot classification and posture evaluation.
+\subsection{Machine Learning Module}
+The machine learning module is responsible for classifying cricket shots based on the extracted features. It uses a Random Forest classifier trained on data derived from cricket shot videos. The model learns patterns associated with correct batting techniques and uses this knowledge to make predictions during analysis.
+In addition to the trained model, the system employs rule-based logic to classify shots based on elbow angle thresholds. This hybrid approach ensures both accuracy and interpretability. The machine learning module outputs the predicted shot type, which is included in the final feedback provided to the user.
+\subsection{Biomechanical Analysis Module}
+The biomechanical analysis module focuses on evaluating the physical aspects of the player’s posture. It calculates joint angles, particularly the elbow angle, using trigonometric functions. By analyzing the relationship between the shoulder, elbow, and wrist, the module determines the degree of arm extension during the shot.
+The module also examines other posture-related parameters, such as head alignment and knee balance, to identify deviations from ideal technique. These calculations provide a scientific basis for evaluating performance and form the foundation for feedback generation. This module bridges the gap between raw data and meaningful interpretation.
+\subsection{Feedback Generation Module}
+The feedback generation module translates analytical results into user-friendly suggestions. It combines outputs from the biomechanical analysis and machine learning modules to generate meaningful feedback. The system identifies issues such as improper head positioning or imbalance in body posture and provides corrective recommendations.
+If the posture is found to be stable, the system acknowledges it with positive reinforcement. Additionally, the module integrates with the OpenAI API to generate concise technical tips, further enhancing the quality of feedback. This module plays a vital role in making the system practical and useful for users.
+\subsection{Report Generation Module}
+The report generation module is responsible for creating a structured PDF document containing the analysis results. It uses the ReportLab library to format the content, including shot type, average elbow angle, number of frames processed, and feedback messages.
+The generated report provides a professional summary of the analysis, which can be downloaded and used for further review or training purposes. This module ensures that the results are not only displayed on the interface but also preserved in a portable and shareable format.
+\subsection{Database Module}
+The database module manages data storage and retrieval for the system. It is implemented using SQLite and accessed through SQLAlchemy. The module stores user information, including usernames, emails, and passwords, as well as analysis reports associated with each user.
+Each report entry contains details such as the video path, report path, and shot classification. This allows users to access their previous analyses and track their progress over time. The database module ensures data persistence and supports the overall functionality of the system.
+
+\section{Data Flow Diagrams}
+The Data Flow Diagram (DFD) for the Posture-Based Detection and Feedback System illustrates the transformation of raw video input into structured biomechanical intelligence across the "Sense-Verify-Advise" pipeline. At the external level, the flow begins when the User uploads a cricket shot video via the FastAPI dashboard, which is then ingested into the system's temporary storage to trigger the analysis sequence. This raw data is first passed to the MediaPipe Pose engine, where it is decomposed from pixel arrays into a set of 33 3D skeletal landmarks (x,y,z).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{Pictures/level1.jpeg}
+\caption{Data Flow Diagram - Level 1}
+\label{fig:dataflow_l1}
+\end{figure}
+
+Once these landmarks are extracted, the data flows into parallel internal processing streams for technical validation. The Geometric Calculus sub-system applies the Law of Cosines to the landmarks to generate a stream of joint angles, such as elbow extension, while the Random Forest Classifier (trained on UCF101) identifies the specific shot type based on these kinematic patterns. Simultaneously, the system performs a Heuristic Check by comparing landmark positions against predefined thresholds to identify technical errors like head-dropping or lead-knee collapse. This synthesized data—comprising average angles, shot classification, and identified errors—is then transmitted to the OpenAI GPT-4o API for zero-shot inference.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{Pictures/level2.jpeg}
+\caption{Data Flow Diagram - Level 2}
+\label{fig:dataflow_l2}
+\end{figure}
+
+In the final stage of the data flow, the API returns a natural language coaching tip which is integrated with the processed video and formatted into a ReportLab PDF audit. Throughout this cycle, the SQLAlchemy ORM ensures that all transaction data, including user credentials and report paths, is recorded in the SQLite database. This allows for secure data persistence and enables the user to asynchronously retrieve their past analysis results directly from the dashboard at any time.
+
+
+\chapter{Tools \& Technologies Used}
+
+\section{Foundations of Computer Vision \& Data Ingestion}
+\begin{sloppypar}
+
+\subsection{System Environment and Hardware Constraints}
+The system is engineered as a Post-Processing Biomechanical Engine. Unlike real-time sensor-based systems, this architecture is designed to ingest pre-recorded athletic data, allowing for deeper heuristic analysis without the latency constraints of live streaming.
+\begin{itemize}
+    \item {Processing Unit:} A multi-core CPU (Intel Core i5/i7 or AMD Ryzen 5/7) is utilized to manage the high-computational load of decoding uploaded MP4/AVI files and running concurrent AI inference.
+\end{itemize}
+\begin{itemize}
+    \item Memory Management: 8GB DDR4 RAM is the baseline requirement to maintain the "Upload-Buffer Pipeline." This ensures that large video files can be held in temporary memory during landmark extraction without system crashes.
+\end{itemize}
+
+\subsection{Kinematic Coordinate Extraction via Google MediaPipe}
+Once the frames are stabilized by OpenCV, they are passed to Google MediaPipe. Unlike traditional heat-map-based pose estimators, MediaPipe utilizes a "BlazePose" research model that provides 33 3D landmarks. This is critical for our "Spatial Topological Mapping." The report should explain how MediaPipe maps the human body into a skeletal graph. By extracting $(x, y, z)$ coordinates, the system moves beyond 2D image analysis into 3D kinematic space, allowing the software to "understand" depth—such as whether a user’s knee is buckling inward during a squat, even when viewed from the front.
+\end{sloppypar}
+\section{Mathematical Modeling \& Spatial Intelligence}
+\begin{sloppypar}
+\subsection{Translating Landmarks into Biometric Data}
+This page focuses on the transformation of raw spatial coordinates into "Deterministic Scalars." The system identifies key "Joint Triads" (e.g., Shoulder-Hip-Knee). Using the spatial data from MediaPipe, we calculate the vectors between these points. The primary objective here is to derive the internal angles of the human frame to determine if a specific posture meets the "Safe Range of Motion" (ROM).
+\subsection{Geometric Calculations and Vector Analysis}
+To calculate the angle $\theta$ at a specific joint, the system implements the Law of Cosines or the Dot Product of two vectors. If we define vector $\vec{a}$ as the segment from the hip to the knee, and vector $\vec{b}$ as the segment from the knee to the ankle, the angle is derived as:$$\theta = \arccos\left(\frac{\vec{a} \cdot \vec{b}}{|\vec{a}| |\vec{b}|}\right)$$This section of the report documents how these calculations are performed 30 times per second, creating a continuous stream of biometric data that describes the user's physical state with mathematical precision.
+\section{Supervised Learning \& Action Benchmarking}
+\subsection{Scikit-Learn and the Random Forest Paradigm}
+While geometric angles provide raw data, they do not inherently "know" if a squat is deep enough or if a back is rounded. For this, we implement a Supervised Random Forest Classifier via Scikit-Learn. This model was chosen for its robustness against "noisy" data—common in home-workout environments with cluttered backgrounds. The Random Forest operates on an ensemble of decision trees, taking the calculated angles as input features and outputting a classification (e.g., "Correct Form," "Rounded Back," or "Incomplete Range").
+
+\subsection{Empirical Benchmarking with UCF101}
+To ensure the classifier is scientifically grounded, the UCF101 Dataset is employed as the benchmark. UCF101 is a massive action recognition dataset containing over 13,000 videos across 101 categories. By using this as a "Ground Truth" training set, the system's ability to recognize complex human movements is validated against industry-standard benchmarks. This section discusses the training-validation split and the resulting confusion matrix used to tune the system's accuracy.
+\end{sloppypar}
+\section{Generative Inference \& Feedback Translation}
+\begin{sloppypar}
+\subsection{OpenAI GPT-4o: From Data to Coaching}A major innovation in this project is the transition from "Binary Classification" to "Generative Coaching." Using the OpenAI GPT-4o API, the system performs Zero-shot Generative Inference. It takes the deterministic scalars (e.g., "Back angle is $15^\circ$ off-parallel") and translates them into human-centric coaching heuristics. This prevents the system from sounding like a machine; instead of saying "Error 402," it says, "Keep your chest up and look forward to align your spine.\subsection{Heuristic Mapping and Prompt Engineering}This section documents the "System Prompting" strategy. The API is fed the current biometric state and the historical movement data. GPT-4o acts as the "Intelligence Layer," synthesizing the ML classification and the raw geometric data into a concise, encouraging feedback loop. This mimics the behavior of a professional personal trainer, providing corrective cues in real-time.
+\end{sloppypar}
+\section{Backend Infrastructure \& Concurrency}
+\begin{sloppypar}
+\subsection{FastAPI: The Asynchronous Core}
+The backend is powered by FastAPI, an ASGI (Asynchronous Server Gateway Interface) framework. This is critical because video processing is "I/O Bound" and "CPU Bound." Using async and await syntax, FastAPI allows the system to process incoming video frames while simultaneously communicating with the GPT-4o API and the SQLite database. This section explains the benefit of Uvicorn as the lightning-fast web server that manages these concurrent worker processes.
+
+\subsection{RESTful Architecture and Data Flow}
+The report details the API design:
+
+\begin{enumerate}
+    \item POST /analyze: Ingests video frames and returns skeletal landmarks.
+\end{enumerate}
+
+\begin{enumerate}
+    \item GET /history: Retrieves previous session stats from the database.
+\end{enumerate}
+
+\begin{enumerate}
+    \item POST /generate-feedback: Triggers the GPT-4o heuristic translation.
+\end{enumerate}
+By decoupling the "Vision" layer from the "Logic" layer, the system maintains high performance even on consumer-grade hardware.
+\end{sloppypar}
+\section{State Management \& UI Aesthetics}
+\subsection{SQLite: Relational State and Security}
+For data persistence, SQLite is utilized to store user profiles, session logs, and movement history. This choice ensures a lightweight footprint without the overhead of a managed database server. The report highlights the "Secure, HTTP-only" session isolation, ensuring that a user's biometric data—which is highly sensitive—is isolated at the database level and protected from Cross-Site Scripting (XSS) attacks.
+
+\subsection{Tailwind CSS and Glassmorphism UI}
+The frontend utilizes Tailwind CSS, focusing on a Glassmorphism design paradigm. This aesthetic choice (using backdrop-blur and semi-transparent layers) is not purely visual; it allows the coaching feedback to be overlaid on the video stream without obscuring the user's view of their own body. This section discusses the "UX of Feedback"—how color-coded skeletal overlays (Green for correct, Red for error) provide immediate subconscious cues to the user.
+
+
+\section{Auditing \& Programmatic Reporting}
+\begin{sloppypar}
+\subsection{ReportLab: Immutable Biometric Auditing}
+The final component of the stack is ReportLab, used for Programmatic PDF Serialization. At the end of a session, the system aggregates all movement data, coaching cues, and accuracy scores. ReportLab then generates an "Immutable Biometric Audit"—a tamper-proof PDF report. This is essential for professional applications where a user might need to share their progress with a physical therapist or doctor.
+\subsection{System Integration and Future Scalability}
+The concluding section of the Tools and Technologies chapter explains how these 10 distinct technologies integrate into a "Feedback Loop." It discusses the "End-to-End Latency" (from camera to GPT feedback) and provides a roadmap for scalability, such as moving the processing to the "Edge" or utilizing WebSockets for even faster real-time interaction.
+\end{sloppypar}
+%%%% New Chapter........................
+\chapter{Testing Strategies \& Result Achieved}
+\section{Results}
+The functional testing of the system was conducted across the entire user journey, from authentication to final report generation. The following figures illustrate the operational state of the platform:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/1.loginpage.png}
+    \caption{System Authentication: Login Page Interface}
+    \label{fig:login_page}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/register.png}
+    \caption{System Authentication: Register Page Interface}
+    \label{fig:upload_page}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/2.afterlogin.png}
+    \caption{Video Upload Interface}
+    \label{fig:upload_page}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/3.processing.png}
+    \caption{Real-time Biomechanical Processing and Feature Extraction}
+    \label{fig:processing_state}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/4.resultp1.png}
+    \caption{Analysis Output Screen: Processed Video with Skeletal Overlay}
+    \label{fig:output_screen_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/5.resultp2.png}
+    \caption{Analysis Output Screen: AI-Generated Feedback and Metrics}
+    \label{fig:output_screen_2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/6.pdfpage.png}
+    \caption{Automated Biomechanical Audit Report (PDF Format)}
+    \label{fig:pdf_report_view}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/result2.png}
+    \caption{Result 2}
+    \label{fig:result2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/result2pdf.png}
+    \caption{Result 2 PDF Report}
+    \label{fig:result2pdf}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/result3.png}
+    \caption{Result 3}
+    \label{fig:result2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Pictures/result3pdf.png}
+    \caption{Result 3 PDF Report}
+    \label{fig:result3pdf}
+\end{figure}
+
+\newpage
+
+\section{Summary of Results}
+\begin{sloppypar}
+The results of the Posture-Based Detection and Feedback System for Cricket demonstrate a successful integration of high-speed computer vision and generative artificial intelligence to provide professional-grade athletic coaching. By utilizing a "Triple-Model" architecture, the system achieves objective biomechanical analysis that was previously restricted to expensive motion-capture laboratories.
+
+\subsection*{Core Technical Outcomes}
+\begin{itemize}
+    \item \textbf{Precision Landmark Extraction}: The system successfully extracts 33 distinct 3D skeletal landmarks using Google MediaPipe, allowing for a digital "Spatial Topological Mapping" of the athlete's body.
+    \item \textbf{Biometric Accuracy}: Through the application of the Law of Cosines, the system calculates joint angles (such as elbow extension) in real-time with mathematical precision.
+    \item \textbf{Automated Shot Classification}: Using a Random Forest classifier trained on the UCF101 dataset, the system accurately categorizes strokes into types like "Lofted Drive," "Cover Drive," or "Defensive Stroke" based on kinematic signatures.
+    \item \textbf{Generative Coaching Heuristics}: The integration of OpenAI GPT-4o allows the system to translate raw scalar data into human-centric coaching tips, such as "Keep your head level" or "Balance your weight," effectively eliminating human observation bias.
+Based on the cumulative analysis of the three test cases, the system demonstrates a high level of consistency in detecting biomechanical metrics across different shot types and video conditions. By processing a total of 1,965 frames across the three samples, the system successfully identified diverse stroke categories—including Close-Body Blocks and Pull/Hook Shots—while maintaining high-frequency skeletal tracking.
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Professional vertical padding
+    \noindent % Ensures the table block starts flush with the margin
+    \resizebox{\textwidth}{!}{ % Opens the resize box
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \rowcolor[gray]{0.9} 
+            \textbf{Metric} & \textbf{Case 1 (Close-Body)} & \textbf{Case 2 (Pull/Hook)} & \textbf{Case 3 (Close-Body)} \\ \hline
+            \textbf{Detected Shot} & Close-Body Block & Pull / Hook Shot & Close-Body Block \\ \hline
+            \textbf{Elbow Extension} & 91° & 118° & 97° \\ \hline
+            \textbf{Frames Analyzed} & 702 & 374 & 889 \\ \hline
+            \textbf{Coaching Outcome} & High-to-Low Defense & High-to-Low Pull & Compact Defense \\ \hline
+        \end{tabular}
+    } % <--- THIS BRACE CLOSES THE RESIZEBOX
+    \caption{Comparative Analysis of Biomechanical Metrics Across Different Shot Results}
+    \label{tab:shot_comparison}
+\end{table}
+\end{itemize}
+\end{sloppypar}
+%%%% New Chapter........................
+
+\chapter{Conclusion }
+\begin{sloppypar}
+    
+The development of the Cricket Posture Detection System marks a meaningful step toward blending technology with sports training in a practical and accessible way. What traditionally required the trained eye of an experienced coach can now be assisted by a system that observes, measures, and interprets player movements with consistency and precision. By transforming ordinary video input into detailed biomechanical insights, the project demonstrates how artificial intelligence can move beyond theory and become a useful tool in real-world applications.
+\\
+\\
+Throughout the implementation, the system successfully integrates multiple technologies, including computer vision, machine learning, and web-based frameworks, into a unified workflow. From capturing a user-uploaded video to extracting skeletal landmarks, calculating joint angles, classifying shot types, and finally generating structured feedback, each component contributes to a cohesive analytical process. The use of MediaPipe for pose estimation ensures accurate tracking of body movements, while the machine learning model and rule-based logic provide reliable classification and interpretation of cricket shots.
+\\
+\\
+One of the most impactful aspects of the system lies in its ability to provide understandable and actionable feedback. Rather than simply presenting raw data, the system translates technical analysis into meaningful suggestions, allowing users to identify mistakes and improve their technique. The addition of a downloadable PDF report further enhances usability by offering a permanent record of performance that can be reviewed over time.
+\\
+\\
+At the same time, the project highlights the potential for future enhancements. The current system focuses primarily on elbow angle and basic posture indicators, but it can be extended to include more advanced biomechanical parameters, real-time analysis, and support for multiple sports. Integration with mobile applications or wearable sensors could further improve accuracy and accessibility, making the system even more valuable for athletes and coaches.
+\\
+\\
+In conclusion, this project successfully demonstrates how intelligent systems can assist in sports performance analysis by providing automated, accurate, and user-friendly feedback. It not only reduces dependency on manual observation but also opens the door to more data-driven training methodologies. As technology continues to evolve, systems like this have the potential to become an integral part of modern sports coaching, helping players refine their skills and reach higher levels of performance.
+\end{sloppypar}
+% ------------------Chapters -----------------------------%
+
+
+
+
+% -----------------------Bibliography----------------------%
+%%% List in alphabetic order
+\begin{thebibliography}{99}
+% --- Cricket and Pose Estimation Papers ---
+\bibitem{siddiqui2023} 
+H.U.R. Siddiqui, et al., \emph{''Enhancing Cricket Performance Analysis with Human Pose Estimation and Machine Learning''}, Sensors, vol. 23, no. 15, p. 6839, 2023.
+\bibitem{moodley2019} 
+Moodley and Van der Haar, \emph{''Cricket Stroke Classification using Computer Vision''}, Springer, 2019.
+\bibitem{devanandan2021} 
+Devanandan et al., \emph{''Machine Learning Techniques for Cricket Shot Recognition''}, ResearchGate, 2021.
+\bibitem{bandara2020} 
+Bandara and Bačić, \emph{''Temporal Deep Learning for Sports Motion Analysis''}, IEEE, 2020.
+\bibitem{lazarescu1999} 
+Lazarescu et al., \emph{''Early Approaches to Cricket Shot Modelling''}, Springer, 1999.
+\bibitem{mediapipe} 
+Google AI Edge, \emph{''MediaPipe Pose Documentation''}, [Online]. Available: https://ai.google.dev/edge/mediapipe.
+\bibitem{lspdataset} 
+\emph{''Leeds Sports Pose (LSP) Dataset''}, Kaggle Datasets.
+\bibitem{sportspose2023} 
+\emph{''SportsPose Dataset - Dynamic 3D Sports Pose Dataset''}, CVPR, 2023.
+% --- Negative Databases Papers ---
+\bibitem{ev08}
+F. Esponda, \emph{''Everything that is not important: negative databases''}, IEEE Computational Intelligence, May 2008.
+\bibitem{on05}
+F. Esponda, E.S. Ackley, S. Forrest, P. Helman, \emph{''Online negative databases''}, International Journal of Unconventional Computing, vol. 1, no. 3, pp. 403-416, 2005.
+\bibitem{pro07}
+F. Esponda, E.S. Ackley, S. Forrest, H. Jia, P. Helman, \emph{''Protecting Data Privacy through Hard to reverse negative databases''}, International Journal of Information and Security, vol. 6, pp. 403-416, Oct 2007.
+\bibitem{enhan04}
+F. Esponda, S. Forrest, and P. Helman, \emph{''Enhancing Privacy through Negative Representations of Data''}, UNM Computer Science Technical Report TR-CS-2004-18, March 2004.
+\bibitem{neg04}
+F. Esponda, S. Forrest, and P. Helman, \emph{''Negative representations of information''}, Submitted to International Journal of Information Security, 2004.
+\bibitem{rel07}
+F. Esponda, E.D. Trias, E.S. Ackley, and S. Forrest, \emph{''A Relational Algebra for Negative Databases''}, UNM Computer Science Technical Report TR-CS-2007-18, November 2007.
+\bibitem{gen05}
+H. Jia, C. Moore, and D. Strain, \emph{''Generating hard satisfiable formulas by hiding solutions deceptively''}, In AAAI, 2005.
+\bibitem{site}
+\emph{''Negative Databases Project''}, [Online]. Available: http://www.cs.unm.edu/~forrest/projects/ndb/index.html (Accessed: April 22, 2017).
+\end{thebibliography}
+% -----------------------Bibliography----------------------%
+
+%%%%%%%%%%  To cite a reference paper in the chapters like "Refer [1]" You should follow this syntax in the chapters.
+% ....for explanation kindly refer ~\cite{ev08}
+		% Output will be .... for explanation kindly refer [1]	
+% ev08 is just a name i have given to reference 1.
+%%%%%%%%%%%%%%%%%%%%
+
+
+
+%% ----------------------- Appendix chapters -------------------%
+\begin{appendices}
+
+% --- CHAPTER A: BACKEND SOURCE CODE ---
+\chapter{BACKEND CODES}
+\begin{sloppypar}
+\section{\normalsize Login Account Data}
+\lstset{tabsize=1, language=Python}
+\lstinputlisting{database.pl}
+
+\section{\normalsize Backend Authentication File}
+\lstset{tabsize=1, language=Python, caption={User Authentication Logic}}
+\lstinputlisting{auth.pl}
+
+\section{\normalsize Video Analysis Pipeline}
+\lstset{tabsize=1, language=Python, caption={Frame-by-Frame Biomechanical Analysis}}
+\lstinputlisting{videoanalyze.pl}  
+
+\section{\normalsize Biometric Utility File}
+\lstset{tabsize=1, language=Python, caption={Joint Angle Calculation Utilities}}
+\lstinputlisting{utils.pl}
+
+\section{\normalsize Posture Training Model}
+\lstset{tabsize=1, language=Python, caption={Random Forest Posture Classification}}
+\lstinputlisting{train_model.pl}
+
+\section{\normalsize Shot Classification Engine}
+\lstset{tabsize=1, language=Python, caption={Stroke Identification Logic}}
+\lstinputlisting{shot_analyzer.pl}
+\end{sloppypar}
+
+% --- CHAPTER B: FRONTEND SOURCE CODE ---
+\chapter{FRONTEND CODES}
+\begin{sloppypar}
+\section{\normalsize Dashboard Structure}
+\lstset{tabsize=2, language=HTML, caption={HTML5 Glassmorphism UI Structure}}
+\lstinputlisting{index.html}
+\end{sloppypar}
+
+% --- CHAPTER C: IMPLEMENTATION VISUALS ---
+\chapter{SYSTEM IMPLEMENTATION FIGURES}
+
+\section{Landing Page Dashboard}
+\begin{center}
+\textit{Primary index.html structure using Glassmorphism design and Tailwind CSS.}
+\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Pictures/index.png}
+\caption{Frontend UI Implementation and Layout}
+\label{fig:appendix_frontend_main}
+\end{figure}
+
+\section{System Capabilities UI}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Pictures/maincapabilitiesbox(html).png}
+\caption{System Capabilities and Technical Specs UI}
+\label{fig:appendix_capabilities}
+\end{figure}
+
+\section{Angle Classification Matrix}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Pictures/angleextensionbox(html).png}
+\caption{Elbow Extension Classification Matrix}
+\label{fig:appendix_extension_matrix}
+\end{figure}
+
+\section{Video Processing Flow}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{Pictures/Videoprocessing_shotanalyzer.png}
+\caption{Core Video Processing Logic Flow}
+\label{fig:appendix_video_processing}
+\end{figure}
+
+\section{Biometric Calculus Logic}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Pictures/angledefinition.png}
+\caption{Angle Calculation and Classification Logic}
+\label{fig:appendix_angle_def}
+\end{figure}
+
+\section{Automated Audit Generation}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Pictures/pdfgeneration.png}
+\caption{PDF Report Generation Output}
+\label{fig:appendix_pdf_gen}
+\end{figure}
+
+\section{Model Training Benchmarks}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Pictures/modeltraining.png}
+\caption{Random Forest Training Logic via UCF101}
+\label{fig:appendix_model_train}
+\end{figure}
+
+\section{Authentication and Security Schema}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Pictures/Auth.png}
+\caption{Database Schema and Authentication Logic}
+\label{fig:appendix_db_schema}
+\end{figure}
+
+\end{appendices}
+% ----------------------- End of Document -----------------------%
+\end{document}
+
+%%%%%%%%%%% Document Ends here...!!!!!!!!!!!!!!!!!
